@@ -18,38 +18,38 @@
                 <h1 class="employee__title">
                     Форма сотрудника
                 </h1>
-                <form class="employee__form" action="">
+                <form id="main-form" class="employee__form" action="">
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">ФИО</label>
                         <input id="full-name" class="employee__form-field" type=text>
-                        <span class="employee__form-error"></span>
+                        <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Дата рождения</label>
-                        <input id="full-name" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
+                        <input id="dob" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Email</label>
                         <input id="email" class="employee__form-field" type=text pattern="email">
-                        <span class="employee__form-error"></span>
+                        <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Телефон</label>
-                        <input id="full-name" class="employee__form-field" type=text>
-                        <span class="employee__form-error"></span>
+                        <input id="phone" class="employee__form-field" type=text>
+                        <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Ссылка на профиль</label>
-                        <input id="full-name" class="employee__form-field" type=text>
+                        <input id="personal-url" class="employee__form-field" type=text>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Зарплата</label>
-                        <input id="full-name" class="employee__form-field" type=text>
+                        <input id="salary" class="employee__form-field" type=text>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Пароль</label>
-                        <input id="full-name" class="employee__form-field" type=password>
-                        <span class="employee__form-error"></span>
+                        <input id="password" class="employee__form-field" type=password>
+                        <span></span>
                     </div>
                     <div class="employee__form-item employee__form-item-gender">
                         <label class="employee__form-text-gender">Пол</label>
@@ -59,9 +59,9 @@
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Комментарий</label>
-                        <textarea class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
+                        <textarea id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
                     </div>
-                    <button>SUMBMIT</button>
+                    <button type="submit">SUMBMIT</button>
                 </form>
             </div>
         </section>       
