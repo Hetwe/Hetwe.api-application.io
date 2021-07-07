@@ -18,7 +18,7 @@
                 <h1 class="employee__title">
                     Форма сотрудника
                 </h1>
-                <form id="main-form" class="employee__form" action="">
+                <form id="main-form" class="employee__form" action="" novalidate>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">ФИО</label>
                         <input id="full-name" class="employee__form-field" type=text>
@@ -45,6 +45,7 @@
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Зарплата</label>
                         <input id="salary" class="employee__form-field" type=text>
+                        <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Пароль</label>
@@ -61,7 +62,17 @@
                         <label class="employee__form-text" for="">Комментарий</label>
                         <textarea id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
                     </div>
-                    <button type="submit">SUMBMIT</button>
+                    
+                    <div class="employee__form-item">
+                        <input id="manual" type="checkbox">
+                        <label for="manual">Согласен с политикой обработки данных</label>
+                        <span></span>
+                    </div>
+                    
+                    <div class="employee__form-item">
+                        <button id="submit" class="employee__form-submit" type="submit">ОТПРАВИТЬ</button>
+                    </div>
+                    
                 </form>
             </div>
         </section>       
