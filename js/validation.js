@@ -48,29 +48,20 @@ manual.addEventListener('input', event => {
 })
 
 form.addEventListener('submit', event => {
-    let valueFullName = fullName.value.trim();
-    let valueEmail = email.value.trim();
-    let valueSalary = salary.value.trim();
-    let valuePassword = password.value.trim();
-    if(valueFullName === '' || 
-        valueEmail === ''   ||
-        valueSalary === ''  ||
-        valuePassword === ''||
-        !(manual.checked)
-    ){
-        event.preventDefault();
-        console.log(manual.checked);
-    }
-
     if(!checkFullName(fullName)){
+        event.preventDefault();
         setErrorState(fullName, 'ФИО не может быть пустым');
     }if(!checkEmail(email)){
+        event.preventDefault();
         setErrorState(email, 'Некорректный Email');
     }if(!checkSalary(salary)){
+        event.preventDefault();
         setErrorState(salary, 'Некорректно указана зарплата')
     }if(!checkPassword(password)){
+        event.preventDefault();
         setErrorState(password, 'Пароль должен быть от 6 до 12 символов')
     }if(!checkManual(manual)){
+        event.preventDefault();
         setErrorState(manual, 'Необходимо согласится с условиями')
     }
 });
