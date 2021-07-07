@@ -39,7 +39,6 @@ body{
     position: relative;
     margin-right: 14px;
     margin-left: 14px;
-    margin-top: 14px;
     margin-bottom: 24px;
 }
 
@@ -98,7 +97,7 @@ textarea{
     resize: none;
 }
 
-/* ================Error Span================ */
+/* ================START Error Span================ */
 .employee__form-error{
     /* word-wrap: normal; */
     display: block;
@@ -121,4 +120,18 @@ textarea{
     border-bottom: 6px solid #e74c3c;
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
+}
+/* ================END Error Span================ */
+
+.employee__form-submit{
+    border-radius: 4px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    background-color: #0f0c0cf6;
+    color: #ffffff;
+    padding: 6px;
+    font-size: 18px;
 }
