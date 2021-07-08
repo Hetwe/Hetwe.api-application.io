@@ -18,53 +18,53 @@
                 <h1 class="employee__title">
                     Форма сотрудника
                 </h1>
-                <form id="main-form" class="employee__form" action="" novalidate>
+                <form id="main-form" class="employee__form" novalidate>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">ФИО</label>
-                        <input id="full-name" class="employee__form-field" type=text>
+                        <input name="fullName" id="full-name" class="employee__form-field" type=text>
                         <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Дата рождения</label>
-                        <input id="dob" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
+                        <input name="birthday" id="dob" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Email</label>
-                        <input id="email" class="employee__form-field" type=text pattern="email">
+                        <input name="email" id="email" class="employee__form-field" type=text pattern="email">
                         <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Телефон</label>
-                        <input id="phone" class="employee__form-field" type=text>
+                        <input name="phone" id="phone" class="employee__form-field">
                         <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Ссылка на профиль</label>
-                        <input id="personal-url" class="employee__form-field" type=text>
+                        <input name="profileUrl" id="personal-url" class="employee__form-field" type=text>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Зарплата</label>
-                        <input id="salary" class="employee__form-field" type=text>
+                        <input name="salary" id="salary" class="employee__form-field" type=text>
                         <span></span>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Пароль</label>
-                        <input id="password" class="employee__form-field" type=password>
+                        <input name="password" id="password" class="employee__form-field" type=password>
                         <span></span>
                     </div>
                     <div class="employee__form-item employee__form-item-gender">
                         <label class="employee__form-text-gender">Пол</label>
-                        <label><input name="gender" type="radio">Мужчина</label>
-                        <label><input name="gender" type="radio">Женщина</label>
-                        <label><input name="gender" type="radio" checked>Другой</label>
+                        <label><input class="i" name="gender" type="radio" value="MALE" checked>Мужчина</label>
+                        <label><input class="i" name="gender" type="radio" value="FAMELE">Женщина</label>
+                        <label><input class="i" name="gender" type="radio" value="OTHER">Другой</label>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="">Комментарий</label>
-                        <textarea id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
+                        <textarea name="comment" id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
                     </div>
                     
                     <div class="employee__form-item">
-                        <input id="manual" type="checkbox">
+                        <input name="acceptManual" id="manual" type="checkbox">
                         <label for="manual">Согласен с политикой обработки данных</label>
                         <span></span>
                     </div>
@@ -77,7 +77,7 @@
             </div>
         </section>       
     </main>
-    <script src="js/validation.js" type="text/javascript"></script>
+    <script src="js/validation-request-data.js" type="text/javascript"></script>
     <script>
         $(".employee__form-field").focus(function(){
             $(this).parent().addClass("employee__form-text_focus");
