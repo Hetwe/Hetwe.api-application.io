@@ -199,7 +199,7 @@ function checkAllInput(){
         setErrorState(salary, 'Некорректно указана зарплата');
         isError = true;
     }if(!checkPassword(password)){
-        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• прописные латинские буквы\n• строчные латинские буквы');
+        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• цифры\n• прописные латинские буквы\n• строчные латинские буквы');
         isError = true;
     }if(!checkManual(manual)){
         setErrorState(manual, 'Необходимо согласится с условиями');
