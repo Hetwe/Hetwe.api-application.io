@@ -20,46 +20,46 @@
                 </h1>
                 <form id="main-form" class="employee__form" novalidate>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">ФИО</label>
+                        <label class="employee__form-text" for="full-name">ФИО</label>
                         <input name="fullName" id="full-name" class="employee__form-field" type=text>
                         <span></span>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Дата рождения</label>
+                        <label class="employee__form-text" for="dob">Дата рождения</label>
                         <input name="birthday" id="dob" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Email</label>
+                        <label class="employee__form-text" for="email">Email</label>
                         <input name="email" id="email" class="employee__form-field" type=text pattern="email">
                         <span></span>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Телефон</label>
+                        <label class="employee__form-text" for="phone">Телефон</label>
                         <input name="phone" id="phone" class="employee__form-field">
                         <span></span>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Ссылка на профиль</label>
+                        <label class="employee__form-text" for="personal-url">Ссылка на профиль</label>
                         <input name="profileUrl" id="personal-url" class="employee__form-field" type=text>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Зарплата</label>
+                        <label class="employee__form-text" for="salary">Зарплата</label>
                         <input name="salary" id="salary" class="employee__form-field" type=text>
                         <span></span>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Пароль</label>
+                        <label class="employee__form-text" for="password">Пароль</label>
                         <input name="password" id="password" class="employee__form-field" type=password>
                         <span></span>
                     </div>
                     <div class="employee__form-item employee__form-item-gender">
                         <label class="employee__form-text-gender">Пол</label>
-                        <label><input class="i" name="gender" type="radio" value="MALE" checked>Мужчина</label>
-                        <label><input class="i" name="gender" type="radio" value="FAMELE">Женщина</label>
-                        <label><input class="i" name="gender" type="radio" value="OTHER">Другой</label>
+                        <label><input name="gender" type="radio" value="MALE" checked>Мужчина</label>
+                        <label><input name="gender" type="radio" value="FAMELE">Женщина</label>
+                        <label><input name="gender" type="radio" value="OTHER">Другой</label>
                     </div>
                     <div class="employee__form-item">
-                        <label class="employee__form-text" for="">Комментарий</label>
+                        <label class="employee__form-text" for="comment">Комментарий</label>
                         <textarea name="comment" id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
                     </div>
                     
@@ -75,7 +75,7 @@
                     
                 </form>
             </div>
-        </section>       
+        </section>
     </main>
     <script src="js/validation-request-data.js" type="text/javascript"></script>
     <script>

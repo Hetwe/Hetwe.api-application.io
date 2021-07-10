@@ -57,7 +57,82 @@ function ListEmployee(){
 
 window.addEventListener('load', event => {
     ListEmployee().then(data => {
-        console.log(data);
+        let main = document.getElementsByClassName('page')[0];
+        let section = document.createElement('section');
+        section.className = 'employee-table';
+        let div = document.createElement('div');
+        div.className = 'employee-table__wrapper';
+        let table = document.createElement('table');
+        table.className = 'table';
+    
+        main.appendChild(section).appendChild(div).appendChild(table);
+    
+        let thead = document.createElement('thead');
+        table.appendChild(thead);
+    
+        let th = document.createElement('th');
+        let td = document.createElement('td');
+        let tr = document.createElement('tr');
+        
+        thead.appendChild(tr);
+
+        th.innerHTML = 'ФИО';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Пол';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Дата рождения';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Телефон';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Email';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Ссылка на профиль';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Пароль';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Зарплата';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.innerHTML = 'Комментарий';
+        tr.appendChild(th);
+
+        let employee = {
+            fullName: '',
+            gender: '',
+            birthday: '',
+            phone: '',
+            email: '',
+            profileUrl: '',
+            password: '',
+            salary: '',
+            comment: ''
+        }
+
+        let tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        for(let i = 0; i < data.length; i++){
+            tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for(let j = 0; j < 9; j++){
+                td = document.createElement('td');
+                for (const key in data[i]) {
+                    if(key === 'token' || key === 'id'){
+                        continue;
+                    }
+                    employee[key] = data[i][key];
+                }
+                td.innerHTML = employee[Object.keys(employee)[j]];
+                tr.appendChild(td);
+            }
+        }
     }).catch(error => {
         console.log(error.toString());
     })
