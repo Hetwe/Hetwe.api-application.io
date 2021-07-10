@@ -113,7 +113,7 @@ textarea{
     min-width:max-content;
     border-radius: 4px;
     padding: 0px 8px;
-    background-color: #e74c3c;
+    background-color: rgb(221, 60, 44);
     transition: .6s;
 }
 
@@ -121,7 +121,7 @@ textarea{
     content: "";
     position: relative;
     top: -26px;
-    border-bottom: 6px solid #e74c3c;
+    border-bottom: 6px solid rgb(221, 60, 44);
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }

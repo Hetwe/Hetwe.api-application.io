@@ -1,6 +1,8 @@
 const patternEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 const patternNumber = new RegExp(/^[1-9]{1}[0-9]*$/);
-const patternPassword = new RegExp(/^(?=.*\d).{6,12}$/);
+const patternPassword = new RegExp(/^((?=.*[0-9])+(?=.*[A-Z])+(?=.*[a-z])+(?=[A-Za-z0-9])).{6,12}$/);
+const patternPhone = new RegExp(/^\+7[0-9]{10}$/);
+
 const tokenID = '0fb5cd31-6eb4-4fbc-834c-089b2b823c7b';
 
 const isCheckbox = type => ['checkbox'].includes(type);
@@ -9,6 +11,7 @@ const isRadio = type => ['radio'].includes(type);
 const form = document.getElementById('main-form');
 const fullName = document.getElementById('full-name');
 const email = document.getElementById('email');
+const phone = document.getElementById('phone');
 const salary = document.getElementById('salary');
 const password = document.getElementById('password');
 const manual = document.getElementById('manual');
@@ -184,11 +187,14 @@ function checkAllInput(){
     }if(!checkEmail(email)){
         setErrorState(email, 'Некорректный Email');
         isError = true;
+    }if(!checkPhone(phone)){
+        setErrorState(phone, 'Некорректно введн номер телефона');
+        isError = true;
     }if(!checkSalary(salary)){
         setErrorState(salary, 'Некорректно указана зарплата');
         isError = true;
     }if(!checkPassword(password)){
-        setErrorState(password, 'Пароль должен быть от 6 до 12 символов');
+        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• прописные латинские буквы\n• строчные латинские буквы');
         isError = true;
     }if(!checkManual(manual)){
         setErrorState(manual, 'Необходимо согласится с условиями');
@@ -214,6 +220,14 @@ email.addEventListener('input', event => {
     }
 });
 
+phone.addEventListener('input', event => {
+    if(checkPhone(phone)){
+        setSuccessState(phone);
+    }else{
+        setErrorState(phone, 'Некорректно введн номер телефона')
+    }
+})
+
 salary.addEventListener('input', event => {
     if(checkSalary(salary)){
         setSuccessState(salary);
@@ -226,7 +240,7 @@ password.addEventListener('input', event => {
     if(checkPassword(password)){
         setSuccessState(password);
     }else{
-        setErrorState(password, 'Пароль должен быть от 6 до 12 символов');
+        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• прописные латинские буквы\n• строчные латинские буквы');
     }
 });
 
@@ -235,6 +249,7 @@ manual.addEventListener('input', event => {
         setSuccessState(manual);
     }
 });
+
 
 
 
@@ -250,6 +265,11 @@ function checkFullName(fullName){
 function checkEmail(email){
     let valueEmail = email.value.trim();
     return patternEmail.test(valueEmail);
+}
+
+function checkPhone(phone){
+    let valuePhone = phone.value.trim();
+    return patternPhone.test(valuePhone);
 }
 
 function checkSalary(salary){
