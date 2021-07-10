@@ -193,7 +193,7 @@ function checkAllInput(){
         setErrorState(email, 'Некорректный Email');
         isError = true;
     }if(!checkPhone(phone)){
-        setErrorState(phone, 'Некорректно введн номер телефона');
+        setErrorState(phone, 'Некорректно введен номер телефона');
         isError = true;
     }if(!checkSalary(salary)){
         setErrorState(salary, 'Некорректно указана зарплата');
@@ -229,7 +229,7 @@ phone.addEventListener('input', event => {
     if(checkPhone(phone)){
         setSuccessState(phone);
     }else{
-        setErrorState(phone, 'Некорректно введн номер телефона')
+        setErrorState(phone, 'Некорректно введен номер телефона')
     }
 })
 
@@ -245,7 +245,7 @@ password.addEventListener('input', event => {
     if(checkPassword(password)){
         setSuccessState(password);
     }else{
-        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• прописные латинские буквы\n• строчные латинские буквы');
+        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• цифры\n• прописные латинские буквы\n• строчные латинские буквы');
     }
 });
 
