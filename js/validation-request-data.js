@@ -175,8 +175,13 @@ form.addEventListener('submit', event => {
     body['tokenId'] = tokenID;
     console.log(body);
     CreateEmployee(body)
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            form.reset();
+            window.location.reload();})
         .catch(error => alert(error.toString()));
+    
+    
 });
 
 function checkAllInput(){
@@ -290,7 +295,11 @@ function setErrorState(input, message){
     const formControl = input.parentElement;
     const error = formControl.querySelector('span');
     error.innerText = message;
-    error.className = 'employee__form-error';
+    error.classList.add('employee__form-error');
+    if(input === password){
+        error.classList.add('employee__form-error-password');
+    }
+    
 }
 
 function setSuccessState(input){

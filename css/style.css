@@ -103,7 +103,6 @@ textarea{
 
 /* ================START Error Span================ */
 .employee__form-error{
-    /* word-wrap: normal; */
     display: block;
     margin-left: 4px;
     position: absolute;
@@ -116,14 +115,26 @@ textarea{
     background-color: rgb(221, 60, 44);
     transition: .6s;
 }
-
 .employee__form-error::before{
     content: "";
     position: relative;
     top: -26px;
     border-bottom: 6px solid rgb(221, 60, 44);
     border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
+    border-left: 4px solid transparent;   
+}
+.employee__form-error-password{
+    display: inline;
+    top: -10px;
+}
+.employee__form-error-password::before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    border-bottom: 4px solid transparent;
+    border-right: 6px solid rgb(221, 60, 44);
+    border-top: 4px solid transparent;
 }
 /* ================END Error Span================ */
 
@@ -140,6 +151,7 @@ textarea{
     font-size: 18px;
 }
 
+/* ================START Table================ */
 .employee-table{
     display: flex;
     justify-content: space-around;
@@ -153,7 +165,7 @@ textarea{
 	margin-bottom: 20px;
     border-spacing: 0px;
     background-color: #ffffff;
-    /* border-radius: 10px; */
+    border-radius: 10px;
 }
 .table thead th {
 	text-align: center;
@@ -194,3 +206,4 @@ textarea{
     white-space: normal;
 	border-bottom: 1px solid rgb(189, 189, 189);
 }
+/* ================END Table================ */
