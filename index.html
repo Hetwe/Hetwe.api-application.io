@@ -27,7 +27,7 @@
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="dob">Дата рождения</label>
-                        <input name="birthday" id="dob" class="employee__form-field employee__form-text_focus" type=date autofocus value="2017-06-01">
+                        <input name="birthday" id="dob" class="employee__form-field" type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="email">Email</label>
@@ -57,7 +57,7 @@
                         <label class="employee__form-text-gender">Пол</label>
                         <label><input name="gender" type="radio" value="MALE" checked>Мужчина</label>
                         <label><input name="gender" type="radio" value="FEMALE">Женщина</label>
-                        <label><input name="gender" type="radio" value="UNKNOWN">Другой</label>
+                        <label><input name="gender" type="radio" value="UNKNOWN">Не указан</label>
                     </div>
                     <div class="employee__form-item">
                         <label class="employee__form-text" for="comment">Комментарий</label>
