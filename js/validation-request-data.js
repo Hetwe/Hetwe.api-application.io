@@ -193,7 +193,7 @@ function checkAllInput(){
         setErrorState(email, 'Некорректный Email');
         isError = true;
     }if(!checkPhone(phone)){
-        setErrorState(phone, 'Некорректно введен номер телефона');
+        setErrorState(phone, 'Введите телефон в формате +7(ХХХ) XХX ХХ XX, без скобок и пробелов');
         isError = true;
     }if(!checkSalary(salary)){
         setErrorState(salary, 'Некорректно указана зарплата');
@@ -229,7 +229,7 @@ phone.addEventListener('input', event => {
     if(checkPhone(phone)){
         setSuccessState(phone);
     }else{
-        setErrorState(phone, 'Некорректно введен номер телефона')
+        setErrorState(phone, 'Введите телефон в формате +7(ХХХ) XХX ХХ XX, без скобок и пробелов')
     }
 })
 
