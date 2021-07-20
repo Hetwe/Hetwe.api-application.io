@@ -3,6 +3,13 @@ const patternNumber = new RegExp(/^[1-9]{1}[0-9]*$/);
 const patternPassword = new RegExp(/^((?=.*[0-9])+(?=.*[A-Z])+(?=.*[a-z])+(?=[A-Za-z0-9])).{6,12}$/);
 const patternPhone = new RegExp(/^\+7[0-9]{10}$/);
 
+const errorMessageFullName = 'ФИО не может быть пустым';
+const errorMessageEmail = 'Некорректный Email';
+const errorMessagePhone = 'Введите телефон в формате +7(ХХХ) XХX ХХ XX, без скобок и пробелов';
+const errorMessageSalary = 'Некорректно указана зарплата';
+const errorMessagePassword = 'Требования к паролю\n• от 6 до 12 символов\n• цифры\n• прописные латинские буквы\n• строчные латинские буквы';
+const errorMessageManual = 'Необходимо согласится с условиями';
+
 const tokenID = '0fb5cd31-6eb4-4fbc-834c-089b2b823c7b';
 
 const isCheckbox = type => ['checkbox'].includes(type);
@@ -143,7 +150,7 @@ window.addEventListener('load', event => {
 
 form.addEventListener('submit', event => {
     event.preventDefault();
-    if(checkAllInput()){
+    if(!checkAllInput()){
         return;
     }
     
@@ -185,74 +192,67 @@ form.addEventListener('submit', event => {
 });
 
 function checkAllInput(){
-    let isError = false;
-    if(!checkFullName(fullName)){
-        setErrorState(fullName, 'ФИО не может быть пустым');
-        isError = true;
-    }if(!checkEmail(email)){
-        setErrorState(email, 'Некорректный Email');
-        isError = true;
-    }if(!checkPhone(phone)){
-        setErrorState(phone, 'Введите телефон в формате +7(ХХХ) XХX ХХ XX, без скобок и пробелов');
-        isError = true;
-    }if(!checkSalary(salary)){
-        setErrorState(salary, 'Некорректно указана зарплата');
-        isError = true;
-    }if(!checkPassword(password)){
-        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• цифры\n• прописные латинские буквы\n• строчные латинские буквы');
-        isError = true;
-    }if(!checkManual(manual)){
-        setErrorState(manual, 'Необходимо согласится с условиями');
-        isError = true;
+    let control = true;
+    if(!checkInput(fullName, checkFullName, errorMessageFullName)){
+        control = false
     }
-    return isError;
+    if(!checkInput(email, checkEmail, errorMessageEmail)){
+        control = false
+    }
+    if(!checkInput(phone, checkPhone, errorMessagePhone)){
+        control = false
+    }
+    if(!checkInput(salary, checkSalary, errorMessageSalary)){
+        control = false
+    }
+    if(!checkInput(password, checkPassword, errorMessagePassword)){
+        control = false
+    }
+    if(!checkInput(manual, checkManual, errorMessageManual)){
+        control = false
+    }
+    return control;
 }
 
+// =========================================== \\
 
-fullName.addEventListener('input', event => {
-    if(checkFullName(fullName)){
-        setSuccessState(fullName);
-    }//else{
-    //     setErrorState(fullName, 'ФИО не может быть пустым');
-    // }
+function checkInput(DOMElement, checkField, message){
+    if(checkField(DOMElement)){
+        setSuccessState(DOMElement);
+        return true;
+    }else{
+        setErrorState(DOMElement, message);
+        return false;
+    }
+}
+
+fullName.addEventListener('input', () => {
+    checkInput(fullName, checkFullName, errorMessageFullName);
+    // if(checkFullName(fullName)){
+    //     setSuccessState(fullName);
+    // }//else{
+    // //     setErrorState(fullName, 'ФИО не может быть пустым');
+    // // }
 });
 
-email.addEventListener('input', event => {
-    if(checkEmail(email)){
-        setSuccessState(email);
-    }else{
-        setErrorState(email, 'Некорректный Email')
-    }
-});
+email.addEventListener('input', () => {
+    checkInput(email, checkEmail, errorMessageEmail);
+}, true);
 
-phone.addEventListener('input', event => {
-    if(checkPhone(phone)){
-        setSuccessState(phone);
-    }else{
-        setErrorState(phone, 'Введите телефон в формате +7(ХХХ) XХX ХХ XX, без скобок и пробелов')
-    }
+phone.addEventListener('input', () => {
+    checkInput(phone, checkPhone, errorMessagePhone);
 })
 
-salary.addEventListener('input', event => {
-    if(checkSalary(salary)){
-        setSuccessState(salary);
-    }else{
-        setErrorState(salary, 'Некорректно указана зарплата')
-    }
+salary.addEventListener('input', () => {
+    checkInput(salary, checkSalary, errorMessageSalary);
 });
 
-password.addEventListener('input', event => {
-    if(checkPassword(password)){
-        setSuccessState(password);
-    }else{
-        setErrorState(password, 'Требования к паролю\n• от 6 до 12 символов\n• цифры\n• прописные латинские буквы\n• строчные латинские буквы');
-    }
+password.addEventListener('input', () => {
+    checkInput(password, checkPassword, errorMessagePassword);
 });
 
-manual.addEventListener('input', event => {
-    if(checkManual(manual)){
-        setSuccessState(manual);
-    }
+manual.addEventListener('input', () => {
+    checkInput(manual, checkManual, errorMessageManual);
 });
 
 
@@ -290,6 +290,7 @@ function checkPassword(password){
 function checkManual(manual){
     return  manual.checked ? true: false;
 }
+
 
 function setErrorState(input, message){
     const formControl = input.parentElement;
