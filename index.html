@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>   
+    <title>REST API</title>
+</head>
+<body>
+    <main class="page">
+        <section class="employee">
+            <div class="employee__wrapper">
+                <h1 class="employee__title">
+                    Форма сотрудника
+                </h1>
+                <form id="main-form" class="employee__form" novalidate autocomplete="off">
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="full-name">ФИО</label>
+                        <input name="fullName" id="full-name" class="employee__form-field" type=text>
+                        <span></span>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="dob">Дата рождения</label>
+                        <input name="birthday" id="dob" class="employee__form-field" type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="email">Email</label>
+                        <input name="email" id="email" class="employee__form-field" type=text pattern="email">
+                        <span></span>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="phone">Телефон</label>
+                        <input name="phone" id="phone" class="employee__form-field">
+                        <span></span>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="personal-url">Ссылка на профиль</label>
+                        <input name="profileUrl" id="personal-url" class="employee__form-field" type=text>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="salary">Зарплата</label>
+                        <input name="salary" id="salary" class="employee__form-field" type=text>
+                        <span></span>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="password">Пароль</label>
+                        <input name="password" id="password" class="employee__form-field" type=password>
+                        <span></span>
+                    </div>
+                    <div class="employee__form-item employee__form-item-gender">
+                        <label class="employee__form-text-gender">Пол</label>
+                        <label><input name="gender" type="radio" value="MALE" checked>Мужчина</label>
+                        <label><input name="gender" type="radio" value="FEMALE">Женщина</label>
+                        <label><input name="gender" type="radio" value="UNKNOWN">Не указан</label>
+                    </div>
+                    <div class="employee__form-item">
+                        <label class="employee__form-text" for="comment">Комментарий</label>
+                        <textarea name="comment" id="comment" class="employee__form-field employee__form-field_focus" name="" id="" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="employee__form-item">
+                        <input name="acceptManual" id="manual" type="checkbox">
+                        <label for="manual">Согласен с политикой обработки данных</label>
+                        <span></span>
+                    </div>
+                    
+                    <div class="employee__form-item">
+                        <button id="submit" class="employee__form-submit" type="submit">ОТПРАВИТЬ</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="js/validation-request-data.js" type="text/javascript"></script>
+    <script>
+        $(".employee__form-field").focus(function(){
+            $(this).parent().addClass("employee__form-text_focus");
+        }).blur(function(){
+            if($(this).val() == ""){
+                $(this).parent().removeClass("employee__form-text_focus");
+            }
+        })
+    </script>
+</body>
+</html>
